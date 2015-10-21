@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :areas do
     resources :locations
   end
+  resources :locations do
+    resources :items
+  end
 
   resources :admin, :only => [:index]
 end

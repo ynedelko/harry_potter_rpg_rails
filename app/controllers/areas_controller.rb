@@ -7,10 +7,14 @@ class AreasController < ApplicationController
     @area = Area.find(params[:id])
   end
 
+  def new
+    @area = Area.new
+  end
+
   def create
     @area = Area.new(area_params)
     if @area.save
-      redirect_to areas_path
+      redirect_to admin_path
     else
       flash[:notice] = "Not quite"
       redirect_to admin_path

@@ -1,6 +1,7 @@
 class AdminController < ApplicationController
   def index
-    @area = Area.new
-    @item = Item.new
+    @areas = Area.all
+    @locations = Location.all
+    @items = Item.all
   end
 end

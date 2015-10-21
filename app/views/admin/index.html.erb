@@ -1,10 +1,16 @@
-<%= form_for(@area) do |f| %>
-  <div class="form-group">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, class: 'form-control' %>
-  </div>
+<% if @areas.any? %>
+  <p>click on an area to add a new location to it:</p>
+  <% @areas.each do |area| %>
+    <li><%= link_to area.name, new_area_location_path(area) %></li>
+  <%end %>
+<% end %>
+<br>
+<p>Or, <%= link_to "Add a new area", new_area_path %></p>
 
-  <div class="actions">
-    <%= f.submit "Save" %>
-  </div>
+<hr>
+<% if @locations.any? %>
+  <p>click on a location to add a new item to it:</p>
+  <% @locations.each do |location| %>
+    <li><%= link_to location.name, new_location_item_path(location) %></li>
+  <%end %>
 <% end %>
