@@ -10,6 +10,7 @@ gem 'bootstrap-sass'
 gem 'turbolinks'
 gem 'hirb'
 gem 'devise'
+gem 'paperclip', '~> 4.1'
 
 group :development do
   gem 'byebug'
