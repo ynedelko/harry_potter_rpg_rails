@@ -1,0 +1,6 @@
+<h1><%= @area.name %></h1>
+<ul>
+  <% @area.locations.each do |location| %>
+    <li><%= link_to location.name, area_location_path(@area, location) %></li>
+  <% end %>
+</ul>

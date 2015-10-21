@@ -1,0 +1,10 @@
+<%= form_for(@area) do |f| %>
+  <div class="form-group">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+<% end %>
