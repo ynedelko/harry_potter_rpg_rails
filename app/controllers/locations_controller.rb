@@ -16,10 +16,10 @@ class LocationsController < ApplicationController
     @area = Area.find(params[:area_id])
     @location = @area.locations.new(location_params)
     if @location.save
-      redirect_to "/"
+      redirect_to admin_index_path
     else
       flash[:notice] = "No sirree bob"
-      redirect_to "/"
+      redirect_to admin_index_path
     end
   end
 
