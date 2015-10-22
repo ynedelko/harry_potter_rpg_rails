@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'hirb'
 gem 'devise'
 gem 'paperclip', '~> 4.1'
+gem 'seed_dump'
 
 group :development do
   gem 'byebug'
