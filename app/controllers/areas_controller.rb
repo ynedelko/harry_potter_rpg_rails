@@ -21,6 +21,12 @@ class AreasController < ApplicationController
     end
   end
 
+  def destroy
+    @area = Area.find(params[:id])
+    @area.destroy
+    redirect_to admin_index_path
+  end
+
   private
     def area_params
       params.require(:area).permit(:name)

@@ -1,28 +1,27 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Wizard Boy was made by Alex Altieri and Leah Klamkin, 2015
 
-Things you may want to cover:
+Wizard Boy is a simple, text-based RPG. You can travel to different locations and gather items from those locations. More functionality will hopefull be added later!
 
-* Ruby version
+In order to get the app working:
 
-* System dependencies
+- Clone this repository
+- In terminal, navigate to the project folder and run:
+- $ bundle
+- $ postgres
+- $ rake db:create
+- $ rake db:migrate
+- $ rake db:seed
+- $ rails s
+- Navigate to localhost:3000 in your browser to start playing!
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Playing around:
+- There are two test accounts already created:
+  - log in with 'admin@admin.com', password 'password' to see all admin functionality in the Admin Portal
+  - log in with 'testuser@testuser.com', password 'password' to play as a normal user
+- If you want to create a new user, we recommend using Mailcatcher (http://mailcatcher.me/) so you can confirm signup (required to log in)
+- If you get an error when adding new objects in the Admin Portal:
+  - In the terminal run
+  - $ rails c
+  - > ActiveRecord::Base.connection.tables.each { |t| ActiveRecord::Base.connection.reset_pk_sequence!(t) }

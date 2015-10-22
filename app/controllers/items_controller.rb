@@ -1,4 +1,10 @@
 class ItemsController < ApplicationController
+  def index
+  end
+
+  def show
+  end
+
   def new
     @location = Location.find(params[:location_id])
     @item = Item.new
@@ -13,6 +19,12 @@ class ItemsController < ApplicationController
       flash[:notice] = "No sirree bob"
       redirect_to admin_index_path
     end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to admin_index_path
   end
 
   private

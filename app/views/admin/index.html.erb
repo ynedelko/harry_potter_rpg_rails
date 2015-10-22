@@ -1,10 +1,14 @@
 <% if @areas.any? %>
   <h2>Click on an area to add a new location to it:</h2>
   <% @areas.each do |area| %>
-    <li><%= link_to area.name, new_area_location_path(area) %></li>
+    <li><%= link_to area.name, new_area_location_path(area) %> <%= link_to ('<span class="glyphicon glyphicon-trash"></span>').html_safe, area_path(area),
+                            :data => {:confirm => "You sure?",
+                            :method => 'delete'} %></li>
       <ul>
         <% area.locations.each do |location| %>
-          <li><%= location.name %>: <%= location.description %></li>
+          <li><%= location.name %>: <%= location.description %> <%= link_to ('<span class="glyphicon glyphicon-trash"></span>').html_safe, area_location_path(area, location),
+                                  :data => {:confirm => "You sure?",
+                                  :method => 'delete'} %></li>
         <% end %>
       </ul>
   <%end %>
@@ -16,10 +20,14 @@
 <% if @locations.any? %>
   <h2>Click on a location to add a new item to it:</h2>
   <% @locations.each do |location| %>
-    <li><%= link_to location.name, new_location_item_path(location) %></li>
+    <li><%= link_to location.name, new_location_item_path(location) %><%= link_to ('<span class="glyphicon glyphicon-trash"></span>').html_safe, location_path(location),
+                            :data => {:confirm => "You sure?",
+                            :method => 'delete'} %></li>
       <ul>
         <% location.items.each do |item| %>
-          <li><%= item.name %>: <%= item.description %></li>
+          <li><%= item.name %>: <%= item.description %> <%= link_to ('<span class="glyphicon glyphicon-trash"></span>').html_safe, location_item_path(location, item),
+                                  :data => {:confirm => "You sure?",
+                                  :method => 'delete'} %></li>
         <% end %>
       </ul>
   <%end %>

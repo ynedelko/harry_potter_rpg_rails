@@ -8,7 +8,8 @@
     </ul>
   </div>
 
-  <div class="col-md-5 jumbotron">
+  <div class="col-md-4 col-md-offset-1
+   jumbotron">
     <h2><%= image_tag(current_user.avatar.url(:thumb)) %> <%= current_user.user_name %></h2>
     <p>Current Inventory:</p>
     <ul><% current_user.items.each do |item| %>
