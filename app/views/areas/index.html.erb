@@ -1,5 +1,24 @@
-<ul class="list-unstyled">
-<% @areas.each do |area|  %>
-  <li><%= link_to area.name, area %></li>
-  <% end %>
-</ul>
+<% if user_signed_in? %>
+  <div class="col-md-7">
+    <h2>Where would you like to go?</h2>
+    <ul class="list-unstyled">
+    <% @areas.each do |area| %>
+      <li><%= link_to area.name, area %></li>
+    <% end %>
+    </ul>
+  </div>
+
+  <div class="col-md-5 jumbotron">
+    <h2><%= image_tag(current_user.avatar.url(:thumb)) %> <%= current_user.user_name %></h2>
+    <p>Current Inventory:</p>
+    <ul><% current_user.items.each do |item| %>
+      <li><%= item.name %>: <%= item.description %></li>
+      <% end %>
+    </ul>
+  </div>
+
+<% else %>
+  <h2>You aren't signed in!</h2>
+  <p><button class="btn btn-lg sign-up"><%= link_to "Sign Up", new_user_registration_path %></button></p>
+  <p><button class="btn btn-lg log-in"><%= link_to "Log In", new_user_session_path %></button></p>
+<% end %>

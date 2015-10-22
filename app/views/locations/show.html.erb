@@ -1,1 +1,10 @@
 <%= @location.name %>
+
+<ul>
+  <% @location.items.each do |item| %>
+    <% unless current_user.items.include?(item) %>
+      <li><%= item.name %>: <%= item.description %></li>
+        <%= link_to 'Add to inventory', {:action => :update, :item => item}, :method => :patch %>
+      <% end %>
+  <% end %>
+</ul>

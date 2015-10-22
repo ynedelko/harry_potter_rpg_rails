@@ -1,3 +1,4 @@
+require 'pry'
 class LocationsController < ApplicationController
   def index
     @locations = Location.all
@@ -20,6 +21,20 @@ class LocationsController < ApplicationController
     else
       flash[:notice] = "No sirree bob"
       redirect_to admin_index_path
+    end
+  end
+
+  def update
+    @model = current_user
+    @area = Area.find(params[:area_id])
+    @location = @area.locations.find(params[:id])
+    @item = Item.find(params[:item])
+    if @model.items.push(@item)
+      flash[:notice] = "Added to inventory!"
+      redirect_to location_path
+    else
+      flash[:alert] = "D'oh!"
+      redirect_to location_path
     end
   end
 
